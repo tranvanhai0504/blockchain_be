@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const app = express();
-const productRoutes = require('./routes/productRoutes');
+const productRoutes = require('./Routes/productRoutes');
 const db = require('./Confign/mgDB');
 const path = require('path');
 
