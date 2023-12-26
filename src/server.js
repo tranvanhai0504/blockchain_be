@@ -3,9 +3,13 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const app = express();
 const productRoutes = require('./Routes/productRoutes');
+const userRoutes = require('./Routes/userRoutes')
 const db = require('./Confign/mgDB');
 const path = require('path');
+var morgan = require('morgan');
+require('dotenv').config();
 
+app.use(morgan('combined'))
 app.use(cors()); // Correctly invoke cors middleware
 const port = process.env.PORT || 3000;
 
@@ -26,6 +30,9 @@ app.get('/', (req, res) => {
 
 // Product routes
 app.use('/api/v1/product', productRoutes);
+
+//User routes
+app.use('/api/v1/user', userRoutes);
 
 // Start the server
 app.listen(port, () => {
